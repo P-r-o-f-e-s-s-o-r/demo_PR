@@ -1,0 +1,163 @@
+/* ==========================================================================
+   NEOBRUTALISM STYLE - MUKESHWAR RAUDRA J
+   ========================================================================== */
+
+:root {
+  --bg-color: #FFFDF2;
+  --card-bg: #FFE600;
+  --text-color: #000000;
+  --border-color: #000000;
+  --accent-pink: #FF5E8E;
+  --accent-cyan: #00D2FF;
+  --accent-white: #FFFFFF;
+  
+  --border-width: 4px;
+  --shadow-main: 12px 12px 0px var(--border-color);
+  --shadow-hover: 18px 18px 0px var(--border-color);
+  --shadow-active: 4px 4px 0px var(--border-color);
+
+  --font-display: 'Syne', 'Space Grotesk', -apple-system, sans-serif;
+  --font-mono: 'Space Grotesk', -apple-system, sans-serif;
+  
+  --transition: all 0.15s cubic-bezier(0, 0, 0.2, 1);
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  font-family: var(--font-display);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  user-select: none;
+}
+
+/* Subtle retro neobrutal dot-grid background */
+.bg-grid-pattern {
+  position: fixed;
+  inset: 0;
+  background-image: radial-gradient(rgba(0, 0, 0, 0.14) 2px, transparent 2px);
+  background-size: 28px 28px;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Center stage container */
+.center-stage {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  width: 100%;
+}
+
+/* Iconic Neobrutal Box */
+.name-box {
+  background-color: var(--card-bg);
+  border: var(--border-width) solid var(--border-color);
+  border-radius: 16px;
+  box-shadow: var(--shadow-main);
+  padding: 3rem 4rem;
+  text-align: center;
+  cursor: pointer;
+  transition: var(--transition);
+  max-width: 95vw;
+}
+
+.name-box:hover {
+  transform: translate(-4px, -4px);
+  box-shadow: var(--shadow-hover);
+  background-color: var(--accent-white);
+}
+
+.name-box:active {
+  transform: translate(6px, 6px);
+  box-shadow: var(--shadow-active);
+}
+
+/* The Name Display */
+.center-name {
+  font-family: var(--font-display);
+  font-size: clamp(2.4rem, 6.5vw, 5.2rem);
+  font-weight: 900;
+  line-height: 1.1;
+  letter-spacing: -1.5px;
+  text-transform: uppercase;
+  color: var(--text-color);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 0.35em;
+}
+
+.word {
+  display: inline-block;
+  transition: var(--transition);
+}
+
+.word:hover {
+  transform: translateY(-4px);
+  color: var(--accent-pink);
+  text-shadow: 4px 4px 0px var(--border-color);
+}
+
+/* Initial "J" styled as a punchy brutalist badge */
+.word.initial {
+  background-color: var(--accent-pink);
+  color: #000000;
+  padding: 0 0.35em;
+  border: var(--border-width) solid var(--border-color);
+  border-radius: 8px;
+  box-shadow: 5px 5px 0px var(--border-color);
+  transform: rotate(3deg);
+  margin-left: 0.1em;
+}
+
+.name-box:hover .word.initial {
+  background-color: var(--accent-cyan);
+  transform: rotate(-4deg) scale(1.08);
+}
+
+.word.initial:hover {
+  background-color: var(--accent-cyan) !important;
+  transform: rotate(0deg) scale(1.15) !important;
+  color: #000000 !important;
+  text-shadow: none !important;
+}
+
+/* Responsive Scaling */
+@media (max-width: 768px) {
+  :root {
+    --border-width: 3.5px;
+    --shadow-main: 8px 8px 0px var(--border-color);
+    --shadow-hover: 12px 12px 0px var(--border-color);
+    --shadow-active: 3px 3px 0px var(--border-color);
+  }
+
+  .name-box {
+    padding: 2rem 1.75rem;
+    border-radius: 12px;
+  }
+
+  .center-name {
+    font-size: clamp(2rem, 8vw, 3.2rem);
+    flex-direction: column;
+    gap: 0.2em;
+  }
+}
